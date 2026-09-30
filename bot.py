@@ -1,4 +1,5 @@
 import logging
+import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from telegram.error import TelegramError
@@ -10,8 +11,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Токен бота
-BOT_TOKEN = "8667992091:AAH51FCaFRjAa902x_pd6OKHgAAwPxK_tLM"
+# Токен бота передаётся через переменную окружения BOT_TOKEN
+BOT_TOKEN = os.environ["BOT_TOKEN"]
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработчик команды /help"""
